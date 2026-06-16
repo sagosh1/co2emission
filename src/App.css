@@ -1,0 +1,88 @@
+.app {
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+.app h1{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 2px;
+}
+
+.subtitle{
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0 0 4px;
+  letter-spacing: 0.5px;
+}
+
+.card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  margin: 12px;
+  padding: 20px 25px;
+}
+
+.field{
+  margin-bottom: 15px;
+}
+
+.field:last-child{
+  margin-bottom: 0;
+}
+
+.field label {
+  display: block;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+
+}
+
+.field input,
+.field select {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  padding: 6px;
+}
+
+.field input:focus,
+.field select:focus{
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.result{
+  border-left: 3px solid var(--accent);
+}
+
+.result dl{
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.result dt{
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.result dd{
+  margin: 0;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.result .highlight{
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--accent);
+}

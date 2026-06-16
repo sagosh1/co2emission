@@ -1,0 +1,22 @@
+{
+  "testRunner": "vitest",
+  "vitest": {
+    "configFile": "vite.config.js"
+  },
+  "mutate": [
+    "src/lib/emissions.js",
+    "src/data/data.js"
+  ],
+  "coverageAnalysis": "perTest",
+  "reporters": ["html", "clear-text", "progress"],
+  "htmlReporter": {
+    "fileName": "reports/mutation/mutation.html"
+  },
+  "thresholds": {
+    "high": 90,
+    "low": 70,
+    "break": 60
+  },
+  "timeoutMS": 10000,
+  "concurrency": 4
+}
