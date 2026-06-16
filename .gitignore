@@ -13,7 +13,6 @@ dist-ssr
 *.local
 
 # Generated reports
-reports/
 .stryker-tmp/
 
 # Editor directories and files

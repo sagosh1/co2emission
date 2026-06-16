@@ -1,0 +1,339 @@
+{
+  "generatedAt": "16 Jun 2026, 22:30",
+  "files": [
+    {
+      "file": "src\\lib\\emissions.js",
+      "physicalLoc": 55,
+      "sourceLoc": 27,
+      "logicalLoc": 23,
+      "blankLines": 7,
+      "commentLines": 21,
+      "functionCount": 2,
+      "avgCC": 5.5,
+      "maxCC": 6,
+      "maintainabilityIndex": 49,
+      "halstead": {
+        "volume": 849,
+        "effort": 17652,
+        "distinctOperators": 14,
+        "distinctOperands": 34
+      },
+      "functions": [
+        {
+          "name": "getEmissionFactor",
+          "startLine": 12,
+          "endLine": 26,
+          "lineLength": 15,
+          "cc": 5,
+          "params": 2,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "calculateEmissions",
+          "startLine": 40,
+          "endLine": 54,
+          "lineLength": 15,
+          "cc": 6,
+          "params": 1,
+          "ccRating": "medium",
+          "lengthRating": "short"
+        }
+      ],
+      "warnings": [
+        "⚠ calculateEmissions() — cyclomatic complexity 6 (threshold: 5)"
+      ]
+    },
+    {
+      "file": "src\\hooks\\useEmissionResult.js",
+      "physicalLoc": 40,
+      "sourceLoc": 33,
+      "logicalLoc": 15,
+      "blankLines": 3,
+      "commentLines": 4,
+      "functionCount": 3,
+      "avgCC": 5.7,
+      "maxCC": 8,
+      "maintainabilityIndex": 54.1,
+      "halstead": {
+        "volume": 612,
+        "effort": 9866,
+        "distinctOperators": 11,
+        "distinctOperands": 29
+      },
+      "functions": [
+        {
+          "name": "useEmissionResult",
+          "startLine": 8,
+          "endLine": 39,
+          "lineLength": 32,
+          "cc": 8,
+          "params": 1,
+          "ccRating": "medium",
+          "lengthRating": "medium"
+        },
+        {
+          "name": "parsed [useMemo]",
+          "startLine": 9,
+          "endLine": 12,
+          "lineLength": 4,
+          "cc": 1,
+          "params": 0,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "return [useMemo]",
+          "startLine": 14,
+          "endLine": 38,
+          "lineLength": 25,
+          "cc": 8,
+          "params": 0,
+          "ccRating": "medium",
+          "lengthRating": "medium"
+        }
+      ],
+      "warnings": [
+        "⚠ useEmissionResult() — cyclomatic complexity 8 (threshold: 5)",
+        "⚠ return [useMemo]() — cyclomatic complexity 8 (threshold: 5)",
+        "⚠ useEmissionResult() — 32 lines (threshold: 30)"
+      ]
+    },
+    {
+      "file": "src\\data\\data.js",
+      "physicalLoc": 37,
+      "sourceLoc": 33,
+      "logicalLoc": 6,
+      "blankLines": 4,
+      "commentLines": 0,
+      "functionCount": 0,
+      "avgCC": 1,
+      "maxCC": 0,
+      "maintainabilityIndex": 63.6,
+      "halstead": {
+        "volume": 571,
+        "effort": 0,
+        "distinctOperators": 0,
+        "distinctOperands": 59
+      },
+      "functions": [],
+      "warnings": []
+    },
+    {
+      "file": "src\\App.jsx",
+      "physicalLoc": 83,
+      "sourceLoc": 74,
+      "logicalLoc": 11,
+      "blankLines": 9,
+      "commentLines": 0,
+      "functionCount": 3,
+      "avgCC": 1.7,
+      "maxCC": 3,
+      "maintainabilityIndex": 55.9,
+      "halstead": {
+        "volume": 1035,
+        "effort": 6231,
+        "distinctOperators": 5,
+        "distinctOperands": 54
+      },
+      "functions": [
+        {
+          "name": "App",
+          "startLine": 6,
+          "endLine": 82,
+          "lineLength": 77,
+          "cc": 3,
+          "params": 0,
+          "ccRating": "low",
+          "lengthRating": "long"
+        },
+        {
+          "name": "<arrow>",
+          "startLine": 30,
+          "endLine": 32,
+          "lineLength": 3,
+          "cc": 1,
+          "params": 1,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "<arrow>",
+          "startLine": 40,
+          "endLine": 44,
+          "lineLength": 5,
+          "cc": 1,
+          "params": 1,
+          "ccRating": "low",
+          "lengthRating": "short"
+        }
+      ],
+      "warnings": [
+        "⚠ App() — 77 lines (threshold: 30)"
+      ]
+    },
+    {
+      "file": "src\\cli\\index.js",
+      "physicalLoc": 156,
+      "sourceLoc": 131,
+      "logicalLoc": 88,
+      "blankLines": 21,
+      "commentLines": 4,
+      "functionCount": 12,
+      "avgCC": 2,
+      "maxCC": 5,
+      "maintainabilityIndex": 31.4,
+      "halstead": {
+        "volume": 4975,
+        "effort": 147525,
+        "distinctOperators": 17,
+        "distinctOperands": 129
+      },
+      "functions": [
+        {
+          "name": "getEmissionFactor",
+          "startLine": 24,
+          "endLine": 31,
+          "lineLength": 8,
+          "cc": 2,
+          "params": 2,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "printIntro",
+          "startLine": 33,
+          "endLine": 40,
+          "lineLength": 8,
+          "cc": 1,
+          "params": 0,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "printTransportMenu",
+          "startLine": 42,
+          "endLine": 49,
+          "lineLength": 8,
+          "cc": 1,
+          "params": 0,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "<arrow>",
+          "startLine": 44,
+          "endLine": 47,
+          "lineLength": 4,
+          "cc": 1,
+          "params": 2,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "printCarMenu",
+          "startLine": 51,
+          "endLine": 59,
+          "lineLength": 9,
+          "cc": 1,
+          "params": 0,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "<arrow>",
+          "startLine": 53,
+          "endLine": 57,
+          "lineLength": 5,
+          "cc": 1,
+          "params": 2,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "printResult",
+          "startLine": 61,
+          "endLine": 72,
+          "lineLength": 12,
+          "cc": 1,
+          "params": 1,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "askNumber",
+          "startLine": 74,
+          "endLine": 81,
+          "lineLength": 8,
+          "cc": 5,
+          "params": 3,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "askChoice",
+          "startLine": 83,
+          "endLine": 90,
+          "lineLength": 8,
+          "cc": 5,
+          "params": 3,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
+          "name": "promptOnce",
+          "startLine": 92,
+          "endLine": 123,
+          "lineLength": 32,
+          "cc": 2,
+          "params": 1,
+          "ccRating": "low",
+          "lengthRating": "medium"
+        },
+        {
+          "name": "main",
+          "startLine": 125,
+          "endLine": 150,
+          "lineLength": 26,
+          "cc": 3,
+          "params": 0,
+          "ccRating": "low",
+          "lengthRating": "medium"
+        },
+        {
+          "name": "<arrow>",
+          "startLine": 152,
+          "endLine": 155,
+          "lineLength": 4,
+          "cc": 1,
+          "params": 1,
+          "ccRating": "low",
+          "lengthRating": "short"
+        }
+      ],
+      "warnings": [
+        "⚠ promptOnce() — 32 lines (threshold: 30)"
+      ]
+    },
+    {
+      "file": "src\\main.jsx",
+      "physicalLoc": 11,
+      "sourceLoc": 9,
+      "logicalLoc": 5,
+      "blankLines": 2,
+      "commentLines": 0,
+      "functionCount": 0,
+      "avgCC": 1,
+      "maxCC": 0,
+      "maintainabilityIndex": 71.7,
+      "halstead": {
+        "volume": 70,
+        "effort": 89,
+        "distinctOperators": 2,
+        "distinctOperands": 11
+      },
+      "functions": [],
+      "warnings": []
+    }
+  ]
+}
