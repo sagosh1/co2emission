@@ -13,6 +13,7 @@ dist-ssr
 *.local
 
 # Generated reports
+reports/
 .stryker-tmp/
 
 # Editor directories and files
@@ -25,5 +26,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-package-lock.json
