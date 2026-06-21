@@ -12,7 +12,7 @@ export default defineConfig([
 
   // ── Node.js CLI files ─────────────────────────────────────────────────────
   {
-    files: ['src/cli/**/*.{js,jsx}'],
+    files: ["src/cli/**/*.{js,jsx}", "scripts/**/*.js"],
     languageOptions: {
       globals: globals.node,
       parserOptions: { ecmaFeatures: { jsx: true } },

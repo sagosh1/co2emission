@@ -12,42 +12,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ── 1. Checkout ────────────────────────────────────────────────────────
+      
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ── 2. Setup Node.js ───────────────────────────────────────────────────
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: "npm"
 
-      # ── 3. Install dependencies ────────────────────────────────────────────
       - name: Install dependencies
         run: npm install
 
-      # ── 4. Build ───────────────────────────────────────────────────────────
       - name: Build
         run: npm run build
 
-      # ── 5. Static analysis (ESLint + SonarJS + Unicorn) ───────────────────
       - name: Static analysis (lint)
         run: npm run lint
 
-      # ── 6. Unit tests with coverage ───────────────────────────────────────
       - name: Unit tests
         run: npm run test:coverage
 
-      # ── 7. Mutation testing (breaks if score < 60%) ───────────────────────
       - name: Mutation testing
         run: npm run mutate
 
-      # ── 8. Code metrics ───────────────────────────────────────────────────
       - name: Code metrics
         run: npm run metrics
 
-      # ── 9. Upload all reports as CI artifacts ─────────────────────────────
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v4
