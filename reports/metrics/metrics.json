@@ -1,28 +1,28 @@
 {
-  "generatedAt": "16 Jun 2026, 22:30",
+  "generatedAt": "21 Jun 2026, 17:45",
   "files": [
     {
       "file": "src\\lib\\emissions.js",
-      "physicalLoc": 55,
-      "sourceLoc": 27,
-      "logicalLoc": 23,
-      "blankLines": 7,
-      "commentLines": 21,
+      "physicalLoc": 60,
+      "sourceLoc": 28,
+      "logicalLoc": 25,
+      "blankLines": 9,
+      "commentLines": 23,
       "functionCount": 2,
       "avgCC": 5.5,
       "maxCC": 6,
-      "maintainabilityIndex": 49,
+      "maintainabilityIndex": 48.2,
       "halstead": {
-        "volume": 849,
-        "effort": 17652,
+        "volume": 865,
+        "effort": 17812,
         "distinctOperators": 14,
-        "distinctOperands": 34
+        "distinctOperands": 35
       },
       "functions": [
         {
           "name": "getEmissionFactor",
-          "startLine": 12,
-          "endLine": 26,
+          "startLine": 17,
+          "endLine": 31,
           "lineLength": 15,
           "cc": 5,
           "params": 2,
@@ -31,8 +31,8 @@
         },
         {
           "name": "calculateEmissions",
-          "startLine": 40,
-          "endLine": 54,
+          "startLine": 45,
+          "endLine": 59,
           "lineLength": 15,
           "cc": 6,
           "params": 1,
@@ -41,41 +41,51 @@
         }
       ],
       "warnings": [
-        "⚠ calculateEmissions() — cyclomatic complexity 6 (threshold: 5)"
+        "calculateEmissions() — cyclomatic complexity 6 (threshold: 5)"
       ]
     },
     {
       "file": "src\\hooks\\useEmissionResult.js",
       "physicalLoc": 40,
-      "sourceLoc": 33,
-      "logicalLoc": 15,
-      "blankLines": 3,
-      "commentLines": 4,
-      "functionCount": 3,
-      "avgCC": 5.7,
-      "maxCC": 8,
-      "maintainabilityIndex": 54.1,
+      "sourceLoc": 28,
+      "logicalLoc": 11,
+      "blankLines": 7,
+      "commentLines": 5,
+      "functionCount": 4,
+      "avgCC": 3.5,
+      "maxCC": 5,
+      "maintainabilityIndex": 57.5,
       "halstead": {
-        "volume": 612,
-        "effort": 9866,
-        "distinctOperators": 11,
-        "distinctOperands": 29
+        "volume": 569,
+        "effort": 7393,
+        "distinctOperators": 9,
+        "distinctOperands": 27
       },
       "functions": [
         {
+          "name": "isValidInput",
+          "startLine": 5,
+          "endLine": 10,
+          "lineLength": 6,
+          "cc": 5,
+          "params": 2,
+          "ccRating": "low",
+          "lengthRating": "short"
+        },
+        {
           "name": "useEmissionResult",
-          "startLine": 8,
+          "startLine": 16,
           "endLine": 39,
-          "lineLength": 32,
-          "cc": 8,
+          "lineLength": 24,
+          "cc": 4,
           "params": 1,
-          "ccRating": "medium",
+          "ccRating": "low",
           "lengthRating": "medium"
         },
         {
           "name": "parsed [useMemo]",
-          "startLine": 9,
-          "endLine": 12,
+          "startLine": 17,
+          "endLine": 20,
           "lineLength": 4,
           "cc": 1,
           "params": 0,
@@ -84,37 +94,33 @@
         },
         {
           "name": "return [useMemo]",
-          "startLine": 14,
+          "startLine": 22,
           "endLine": 38,
-          "lineLength": 25,
-          "cc": 8,
+          "lineLength": 17,
+          "cc": 4,
           "params": 0,
-          "ccRating": "medium",
-          "lengthRating": "medium"
+          "ccRating": "low",
+          "lengthRating": "short"
         }
       ],
-      "warnings": [
-        "⚠ useEmissionResult() — cyclomatic complexity 8 (threshold: 5)",
-        "⚠ return [useMemo]() — cyclomatic complexity 8 (threshold: 5)",
-        "⚠ useEmissionResult() — 32 lines (threshold: 30)"
-      ]
+      "warnings": []
     },
     {
       "file": "src\\data\\data.js",
-      "physicalLoc": 37,
-      "sourceLoc": 33,
-      "logicalLoc": 6,
-      "blankLines": 4,
-      "commentLines": 0,
+      "physicalLoc": 54,
+      "sourceLoc": 40,
+      "logicalLoc": 13,
+      "blankLines": 7,
+      "commentLines": 7,
       "functionCount": 0,
       "avgCC": 1,
       "maxCC": 0,
-      "maintainabilityIndex": 63.6,
+      "maintainabilityIndex": 55.8,
       "halstead": {
-        "volume": 571,
+        "volume": 671,
         "effort": 0,
         "distinctOperators": 0,
-        "distinctOperands": 59
+        "distinctOperands": 66
       },
       "functions": [],
       "warnings": []
@@ -169,41 +175,31 @@
         }
       ],
       "warnings": [
-        "⚠ App() — 77 lines (threshold: 30)"
+        "App() — 77 lines (threshold: 30)"
       ]
     },
     {
       "file": "src\\cli\\index.js",
-      "physicalLoc": 156,
-      "sourceLoc": 131,
-      "logicalLoc": 88,
-      "blankLines": 21,
-      "commentLines": 4,
-      "functionCount": 12,
+      "physicalLoc": 153,
+      "sourceLoc": 113,
+      "logicalLoc": 83,
+      "blankLines": 26,
+      "commentLines": 14,
+      "functionCount": 11,
       "avgCC": 2,
       "maxCC": 5,
-      "maintainabilityIndex": 31.4,
+      "maintainabilityIndex": 32.3,
       "halstead": {
-        "volume": 4975,
-        "effort": 147525,
-        "distinctOperators": 17,
-        "distinctOperands": 129
+        "volume": 4484,
+        "effort": 114207,
+        "distinctOperators": 16,
+        "distinctOperands": 125
       },
       "functions": [
         {
-          "name": "getEmissionFactor",
-          "startLine": 24,
-          "endLine": 31,
-          "lineLength": 8,
-          "cc": 2,
-          "params": 2,
-          "ccRating": "low",
-          "lengthRating": "short"
-        },
-        {
           "name": "printIntro",
-          "startLine": 33,
-          "endLine": 40,
+          "startLine": 32,
+          "endLine": 39,
           "lineLength": 8,
           "cc": 1,
           "params": 0,
@@ -212,8 +208,8 @@
         },
         {
           "name": "printTransportMenu",
-          "startLine": 42,
-          "endLine": 49,
+          "startLine": 41,
+          "endLine": 48,
           "lineLength": 8,
           "cc": 1,
           "params": 0,
@@ -222,8 +218,8 @@
         },
         {
           "name": "<arrow>",
-          "startLine": 44,
-          "endLine": 47,
+          "startLine": 43,
+          "endLine": 46,
           "lineLength": 4,
           "cc": 1,
           "params": 2,
@@ -232,9 +228,9 @@
         },
         {
           "name": "printCarMenu",
-          "startLine": 51,
+          "startLine": 50,
           "endLine": 59,
-          "lineLength": 9,
+          "lineLength": 10,
           "cc": 1,
           "params": 0,
           "ccRating": "low",
@@ -242,9 +238,9 @@
         },
         {
           "name": "<arrow>",
-          "startLine": 53,
+          "startLine": 52,
           "endLine": 57,
-          "lineLength": 5,
+          "lineLength": 6,
           "cc": 1,
           "params": 2,
           "ccRating": "low",
@@ -262,8 +258,8 @@
         },
         {
           "name": "askNumber",
-          "startLine": 74,
-          "endLine": 81,
+          "startLine": 80,
+          "endLine": 87,
           "lineLength": 8,
           "cc": 5,
           "params": 3,
@@ -272,8 +268,8 @@
         },
         {
           "name": "askChoice",
-          "startLine": 83,
-          "endLine": 90,
+          "startLine": 92,
+          "endLine": 99,
           "lineLength": 8,
           "cc": 5,
           "params": 3,
@@ -282,19 +278,19 @@
         },
         {
           "name": "promptOnce",
-          "startLine": 92,
-          "endLine": 123,
-          "lineLength": 32,
+          "startLine": 103,
+          "endLine": 121,
+          "lineLength": 19,
           "cc": 2,
           "params": 1,
           "ccRating": "low",
-          "lengthRating": "medium"
+          "lengthRating": "short"
         },
         {
           "name": "main",
           "startLine": 125,
-          "endLine": 150,
-          "lineLength": 26,
+          "endLine": 147,
+          "lineLength": 23,
           "cc": 3,
           "params": 0,
           "ccRating": "low",
@@ -302,8 +298,8 @@
         },
         {
           "name": "<arrow>",
-          "startLine": 152,
-          "endLine": 155,
+          "startLine": 149,
+          "endLine": 152,
           "lineLength": 4,
           "cc": 1,
           "params": 1,
@@ -311,9 +307,7 @@
           "lengthRating": "short"
         }
       ],
-      "warnings": [
-        "⚠ promptOnce() — 32 lines (threshold: 30)"
-      ]
+      "warnings": []
     },
     {
       "file": "src\\main.jsx",

@@ -2,417 +2,334 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Code Metrics — co2-emission</title>
   <style>
-    :root {
-      --bg: #0f1419; --surface: #1a2332; --text: #e8eef5;
-      --muted: #9fb0c3; --accent: #3d9cf5; --border: #2d3d52;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text);
-           font-family: "Segoe UI", system-ui, sans-serif;
-           line-height: 1.6; padding: 32px; }
-    h1 { font-size: 24px; color: var(--accent); margin-bottom: 4px; }
-    h2 { font-size: 16px; color: var(--accent); margin: 24px 0 10px; }
-    .subtitle { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
-    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-                    gap: 12px; margin-bottom: 32px; }
-    .card { background: var(--surface); border: 1px solid var(--border);
-            border-radius: 10px; padding: 16px 20px; }
-    .card .val { font-size: 28px; font-weight: 600; color: var(--accent); }
-    .card .lbl { font-size: 12px; color: var(--muted); text-transform: uppercase;
-                 letter-spacing: 1px; margin-top: 4px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px;
-            background: var(--surface); border-radius: 8px; overflow: hidden; }
-    th { background: #243044; color: var(--muted); font-size: 12px;
-         text-transform: uppercase; letter-spacing: 1px; padding: 10px 14px; text-align: left; }
-    td { padding: 9px 14px; font-size: 13px; border-top: 1px solid var(--border); }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .file-section { margin-bottom: 36px; padding: 20px 24px;
-                    background: var(--surface); border: 1px solid var(--border);
-                    border-radius: 10px; }
-    .file-meta { display: flex; flex-wrap: wrap; gap: 14px;
-                 font-size: 13px; color: var(--muted); margin: 10px 0 16px; }
-    .warnings { margin-bottom: 12px; }
-    .warn { background: #2a1f0e; border-left: 3px solid #f59e0b;
-            padding: 6px 12px; margin: 4px 0; font-size: 13px; border-radius: 4px; }
-    .ok { background: #0e2a1a; border-left: 3px solid #22c55e;
-          padding: 6px 12px; margin-bottom: 12px; font-size: 13px; border-radius: 4px; }
-    .legend { display: flex; gap: 20px; font-size: 12px; color: var(--muted);
-              margin: 16px 0 8px; flex-wrap: wrap; }
-    .dot { display: inline-block; width: 10px; height: 10px;
-           border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-    .warn-box { background: #1a1a0e; border: 1px solid #f59e0b; border-radius: 10px;
-                padding: 16px 20px; margin-bottom: 28px; }
-    .warn-box h2 { color: #f59e0b; margin-bottom: 10px; }
-  </style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#f8fafc;color:#1e293b;font-family:"Segoe UI",system-ui,sans-serif;line-height:1.6;padding:32px}
+  h1{font-size:22px;color:#0f172a;margin-bottom:4px}
+  h2{font-size:15px;color:#0f172a;margin:24px 0 10px;font-weight:600}
+  .sub{color:#64748b;font-size:13px;margin-bottom:28px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:28px}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .card .val{font-size:26px;font-weight:700;color:#0f172a}
+  .card .lbl{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+  table{width:100%;border-collapse:collapse;margin-top:10px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden}
+  th{background:#f1f5f9;color:#475569;font-size:11px;text-transform:uppercase;letter-spacing:1px;padding:10px 14px;text-align:left;border-bottom:1px solid #e2e8f0}
+  td{padding:9px 14px;font-size:13px;border-top:1px solid #f1f5f9}
+  tr:hover td{background:#f8fafc}
+  a{color:#2563eb;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .file-section{margin-bottom:28px;padding:20px 24px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .file-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:#64748b;margin:8px 0 14px}
+  .warn{background:#fffbeb;border-left:3px solid #d97706;padding:6px 12px;margin:4px 0;font-size:13px;border-radius:4px;color:#92400e}
+  .ok{background:#f0fdf4;border-left:3px solid #16a34a;padding:6px 12px;margin-bottom:12px;font-size:13px;border-radius:4px;color:#166534}
+  .err{color:#dc2626}
+  .legend{display:flex;gap:16px;font-size:12px;color:#64748b;margin:12px 0 8px;flex-wrap:wrap}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:middle}
+  .warn-box{background:#fffbeb;border:1px solid #d97706;border-radius:10px;padding:16px 20px;margin-bottom:24px}
+  .warn-box h2{color:#92400e;margin-bottom:10px}
+  small{font-size:11px}
+</style>
 </head>
 <body>
-  <h1>📊 Code Metrics Report</h1>
-  <p class="subtitle">Project: co2-emission &nbsp;|&nbsp; Generated: 16 Jun 2026, 22:30</p>
-
-  <div class="summary-grid">
-    <div class="card"><div class="val">382</div><div class="lbl">Total Lines</div></div>
-    <div class="card"><div class="val">6</div><div class="lbl">Files Analysed</div></div>
+  <h1>Code Metrics Report</h1>
+  <p class="sub">Project: co2-emission &nbsp;|&nbsp; Generated: 21 Jun 2026, 17:45</p>
+  <div class="grid">
+    <div class="card"><div class="val">401</div><div class="lbl">Total Lines</div></div>
+    <div class="card"><div class="val">6</div><div class="lbl">Files</div></div>
     <div class="card"><div class="val">20</div><div class="lbl">Functions</div></div>
-    <div class="card"><div class="val" style="color:#ef4444">54.3</div><div class="lbl">Avg Maintainability</div></div>
-    <div class="card"><div class="val" style="color:#f59e0b">6</div><div class="lbl">Warnings</div></div>
+    <div class="card"><div class="val" style="color:#dc2626">53.6</div><div class="lbl">Avg Maintainability</div></div>
+    <div class="card"><div class="val" style="color:#d97706">2</div><div class="lbl">Warnings</div></div>
   </div>
-
-  
-  <div class="warn-box">
-    <h2>⚠ Functions Needing Attention</h2>
-    <div class="warn">⚠ calculateEmissions() — cyclomatic complexity 6 (threshold: 5)</div><div class="warn">⚠ useEmissionResult() — cyclomatic complexity 8 (threshold: 5)</div><div class="warn">⚠ return [useMemo]() — cyclomatic complexity 8 (threshold: 5)</div><div class="warn">⚠ useEmissionResult() — 32 lines (threshold: 30)</div><div class="warn">⚠ App() — 77 lines (threshold: 30)</div><div class="warn">⚠ promptOnce() — 32 lines (threshold: 30)</div>
-  </div>
-
+  <div class="warn-box"><h2>Functions Needing Attention</h2><div class="warn">calculateEmissions() — cyclomatic complexity 6 (threshold: 5)</div><div class="warn">App() — 77 lines (threshold: 30)</div></div>
   <h2>File Summary</h2>
   <div class="legend">
-    <span><span class="dot" style="background:#22c55e"></span>CC ≤ 5 — Low</span>
-    <span><span class="dot" style="background:#f59e0b"></span>CC 6–10 — Medium</span>
-    <span><span class="dot" style="background:#ef4444"></span>CC &gt; 10 — High</span>
-    <span>MI ≥ 85 = High | 65–84 = Moderate | &lt; 65 = Low</span>
+    <span><span class="dot" style="background:#16a34a"></span>CC ≤ 5 Low</span>
+    <span><span class="dot" style="background:#d97706"></span>CC 6–10 Medium</span>
+    <span><span class="dot" style="background:#dc2626"></span>CC &gt; 10 High</span>
+    <span>MI ≥ 85 High &nbsp;|&nbsp; 65–84 Moderate &nbsp;|&nbsp; &lt;65 Low</span>
   </div>
   <table>
-    <thead>
-      <tr>
-        <th>File</th><th>Phys LOC</th><th>Source LOC</th><th>Logical LOC</th>
-        <th>Functions</th><th>Cyclomatic CC</th><th>Maintainability</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#file-src-lib-emissions-js">src\lib\emissions.js</a></td>
-        <td>55</td>
-        <td>27</td>
-        <td>23</td>
-        <td>2</td>
-        <td style="color:#f59e0b">5.5 / max 6</td>
-        <td style="color:#ef4444">49 <span style="font-size:11px">(Low)</span></td>
-      </tr>
-      <tr>
-        <td><a href="#file-src-hooks-useEmissionResult-js">src\hooks\useEmissionResult.js</a></td>
-        <td>40</td>
-        <td>33</td>
-        <td>15</td>
-        <td>3</td>
-        <td style="color:#f59e0b">5.7 / max 8</td>
-        <td style="color:#ef4444">54.1 <span style="font-size:11px">(Low)</span></td>
-      </tr>
-      <tr>
-        <td><a href="#file-src-data-data-js">src\data\data.js</a></td>
-        <td>37</td>
-        <td>33</td>
-        <td>6</td>
-        <td>0</td>
-        <td style="color:#22c55e">1 / max 0</td>
-        <td style="color:#ef4444">63.6 <span style="font-size:11px">(Low)</span></td>
-      </tr>
-      <tr>
-        <td><a href="#file-src-App-jsx">src\App.jsx</a></td>
-        <td>83</td>
-        <td>74</td>
-        <td>11</td>
-        <td>3</td>
-        <td style="color:#22c55e">1.7 / max 3</td>
-        <td style="color:#ef4444">55.9 <span style="font-size:11px">(Low)</span></td>
-      </tr>
-      <tr>
-        <td><a href="#file-src-cli-index-js">src\cli\index.js</a></td>
-        <td>156</td>
-        <td>131</td>
-        <td>88</td>
-        <td>12</td>
-        <td style="color:#22c55e">2 / max 5</td>
-        <td style="color:#ef4444">31.4 <span style="font-size:11px">(Low)</span></td>
-      </tr>
-      <tr>
-        <td><a href="#file-src-main-jsx">src\main.jsx</a></td>
-        <td>11</td>
-        <td>9</td>
-        <td>5</td>
-        <td>0</td>
-        <td style="color:#22c55e">1 / max 0</td>
-        <td style="color:#f59e0b">71.7 <span style="font-size:11px">(Moderate)</span></td>
-      </tr></tbody>
+    <thead><tr>
+      <th>File</th><th>Phys LOC</th><th>Source LOC</th><th>Logical LOC</th>
+      <th>Functions</th><th>Cyclomatic CC</th><th>Maintainability</th>
+    </tr></thead>
+    <tbody><tr>
+    <td><a href="#file-src-lib-emissions-js">src\lib\emissions.js</a></td>
+    <td>60</td>
+    <td>28</td>
+    <td>25</td>
+    <td>2</td>
+    <td style="color:#d97706">5.5 / max 6</td>
+    <td style="color:#dc2626">48.2 <small>(Low)</small></td>
+  </tr><tr>
+    <td><a href="#file-src-hooks-useEmissionResult-js">src\hooks\useEmissionResult.js</a></td>
+    <td>40</td>
+    <td>28</td>
+    <td>11</td>
+    <td>4</td>
+    <td style="color:#16a34a">3.5 / max 5</td>
+    <td style="color:#dc2626">57.5 <small>(Low)</small></td>
+  </tr><tr>
+    <td><a href="#file-src-data-data-js">src\data\data.js</a></td>
+    <td>54</td>
+    <td>40</td>
+    <td>13</td>
+    <td>0</td>
+    <td style="color:#16a34a">1 / max 0</td>
+    <td style="color:#dc2626">55.8 <small>(Low)</small></td>
+  </tr><tr>
+    <td><a href="#file-src-App-jsx">src\App.jsx</a></td>
+    <td>83</td>
+    <td>74</td>
+    <td>11</td>
+    <td>3</td>
+    <td style="color:#16a34a">1.7 / max 3</td>
+    <td style="color:#dc2626">55.9 <small>(Low)</small></td>
+  </tr><tr>
+    <td><a href="#file-src-cli-index-js">src\cli\index.js</a></td>
+    <td>153</td>
+    <td>113</td>
+    <td>83</td>
+    <td>11</td>
+    <td style="color:#16a34a">2 / max 5</td>
+    <td style="color:#dc2626">32.3 <small>(Low)</small></td>
+  </tr><tr>
+    <td><a href="#file-src-main-jsx">src\main.jsx</a></td>
+    <td>11</td>
+    <td>9</td>
+    <td>5</td>
+    <td>0</td>
+    <td style="color:#16a34a">1 / max 0</td>
+    <td style="color:#d97706">71.7 <small>(Moderate)</small></td>
+  </tr></tbody>
   </table>
-
   <h2 style="margin-top:32px">Function Details</h2>
-  
-      <section id="file-src-lib-emissions-js" class="file-section">
-        <h2>src\lib\emissions.js</h2>
-        <div class="file-meta">
-          <span>📄 55 physical lines</span>
-          <span>📝 27 source lines</span>
-          <span>🔢 23 logical statements</span>
-          <span>🔧 2 functions</span>
-          <span>🌀 Avg CC: 5.5</span>
-          <span>🏆 MI: 49</span>
-        </div>
-        <div class="warnings"><div class="warn">⚠ calculateEmissions() — cyclomatic complexity 6 (threshold: 5)</div></div>
-        
-        <table>
-          <thead>
-            <tr>
-              <th>Function</th><th>Lines</th><th>Length</th>
-              <th>Params</th><th>Cyclomatic CC</th><th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-      <tr>
-        <td>getEmissionFactor()</td>
-        <td>L12–26</td>
-        <td>15</td>
-        <td>2</td>
-        <td style="color:#22c55e">5</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>calculateEmissions()</td>
-        <td>L40–54</td>
-        <td>15</td>
-        <td>1</td>
-        <td style="color:#f59e0b">6</td>
-        <td style="color:#f59e0b">medium</td>
-      </tr></tbody>
-        </table>
-      </section>
-      <section id="file-src-hooks-useEmissionResult-js" class="file-section">
-        <h2>src\hooks\useEmissionResult.js</h2>
-        <div class="file-meta">
-          <span>📄 40 physical lines</span>
-          <span>📝 33 source lines</span>
-          <span>🔢 15 logical statements</span>
-          <span>🔧 3 functions</span>
-          <span>🌀 Avg CC: 5.7</span>
-          <span>🏆 MI: 54.1</span>
-        </div>
-        <div class="warnings"><div class="warn">⚠ useEmissionResult() — cyclomatic complexity 8 (threshold: 5)</div><div class="warn">⚠ return [useMemo]() — cyclomatic complexity 8 (threshold: 5)</div><div class="warn">⚠ useEmissionResult() — 32 lines (threshold: 30)</div></div>
-        
-        <table>
-          <thead>
-            <tr>
-              <th>Function</th><th>Lines</th><th>Length</th>
-              <th>Params</th><th>Cyclomatic CC</th><th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-      <tr>
-        <td>useEmissionResult()</td>
-        <td>L8–39</td>
-        <td>32</td>
-        <td>1</td>
-        <td style="color:#f59e0b">8</td>
-        <td style="color:#f59e0b">medium</td>
-      </tr>
-      <tr>
-        <td>parsed [useMemo]()</td>
-        <td>L9–12</td>
-        <td>4</td>
-        <td>0</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>return [useMemo]()</td>
-        <td>L14–38</td>
-        <td>25</td>
-        <td>0</td>
-        <td style="color:#f59e0b">8</td>
-        <td style="color:#f59e0b">medium</td>
-      </tr></tbody>
-        </table>
-      </section>
-      <section id="file-src-data-data-js" class="file-section">
-        <h2>src\data\data.js</h2>
-        <div class="file-meta">
-          <span>📄 37 physical lines</span>
-          <span>📝 33 source lines</span>
-          <span>🔢 6 logical statements</span>
-          <span>🔧 0 functions</span>
-          <span>🌀 Avg CC: 1</span>
-          <span>🏆 MI: 63.6</span>
-        </div>
-        <div class="ok">✓ No issues detected</div>
-        <p><em>No named functions detected.</em></p>
-      </section>
-      <section id="file-src-App-jsx" class="file-section">
-        <h2>src\App.jsx</h2>
-        <div class="file-meta">
-          <span>📄 83 physical lines</span>
-          <span>📝 74 source lines</span>
-          <span>🔢 11 logical statements</span>
-          <span>🔧 3 functions</span>
-          <span>🌀 Avg CC: 1.7</span>
-          <span>🏆 MI: 55.9</span>
-        </div>
-        <div class="warnings"><div class="warn">⚠ App() — 77 lines (threshold: 30)</div></div>
-        
-        <table>
-          <thead>
-            <tr>
-              <th>Function</th><th>Lines</th><th>Length</th>
-              <th>Params</th><th>Cyclomatic CC</th><th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-      <tr>
-        <td>App()</td>
-        <td>L6–82</td>
-        <td>77</td>
-        <td>0</td>
-        <td style="color:#22c55e">3</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td><arrow>()</td>
-        <td>L30–32</td>
-        <td>3</td>
-        <td>1</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td><arrow>()</td>
-        <td>L40–44</td>
-        <td>5</td>
-        <td>1</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr></tbody>
-        </table>
-      </section>
-      <section id="file-src-cli-index-js" class="file-section">
-        <h2>src\cli\index.js</h2>
-        <div class="file-meta">
-          <span>📄 156 physical lines</span>
-          <span>📝 131 source lines</span>
-          <span>🔢 88 logical statements</span>
-          <span>🔧 12 functions</span>
-          <span>🌀 Avg CC: 2</span>
-          <span>🏆 MI: 31.4</span>
-        </div>
-        <div class="warnings"><div class="warn">⚠ promptOnce() — 32 lines (threshold: 30)</div></div>
-        
-        <table>
-          <thead>
-            <tr>
-              <th>Function</th><th>Lines</th><th>Length</th>
-              <th>Params</th><th>Cyclomatic CC</th><th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-      <tr>
-        <td>getEmissionFactor()</td>
-        <td>L24–31</td>
-        <td>8</td>
-        <td>2</td>
-        <td style="color:#22c55e">2</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>printIntro()</td>
-        <td>L33–40</td>
-        <td>8</td>
-        <td>0</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>printTransportMenu()</td>
-        <td>L42–49</td>
-        <td>8</td>
-        <td>0</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td><arrow>()</td>
-        <td>L44–47</td>
-        <td>4</td>
-        <td>2</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>printCarMenu()</td>
-        <td>L51–59</td>
-        <td>9</td>
-        <td>0</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td><arrow>()</td>
-        <td>L53–57</td>
-        <td>5</td>
-        <td>2</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>printResult()</td>
-        <td>L61–72</td>
-        <td>12</td>
-        <td>1</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>askNumber()</td>
-        <td>L74–81</td>
-        <td>8</td>
-        <td>3</td>
-        <td style="color:#22c55e">5</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>askChoice()</td>
-        <td>L83–90</td>
-        <td>8</td>
-        <td>3</td>
-        <td style="color:#22c55e">5</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>promptOnce()</td>
-        <td>L92–123</td>
-        <td>32</td>
-        <td>1</td>
-        <td style="color:#22c55e">2</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td>main()</td>
-        <td>L125–150</td>
-        <td>26</td>
-        <td>0</td>
-        <td style="color:#22c55e">3</td>
-        <td style="color:#22c55e">low</td>
-      </tr>
-      <tr>
-        <td><arrow>()</td>
-        <td>L152–155</td>
-        <td>4</td>
-        <td>1</td>
-        <td style="color:#22c55e">1</td>
-        <td style="color:#22c55e">low</td>
-      </tr></tbody>
-        </table>
-      </section>
-      <section id="file-src-main-jsx" class="file-section">
-        <h2>src\main.jsx</h2>
-        <div class="file-meta">
-          <span>📄 11 physical lines</span>
-          <span>📝 9 source lines</span>
-          <span>🔢 5 logical statements</span>
-          <span>🔧 0 functions</span>
-          <span>🌀 Avg CC: 1</span>
-          <span>🏆 MI: 71.7</span>
-        </div>
-        <div class="ok">✓ No issues detected</div>
-        <p><em>No named functions detected.</em></p>
-      </section>
+  <section id="file-src-lib-emissions-js" class="file-section">
+    <h2>src\lib\emissions.js</h2>
+    <div class="file-meta">
+      <span>📄 60 physical lines</span>
+      <span>📝 28 source lines</span>
+      <span>🔢 25 logical statements</span>
+      <span>🔧 2 functions</span>
+      <span>Avg CC: 5.5</span>
+      <span>MI: 48.2</span>
+    </div>
+    <div class="warn">calculateEmissions() — cyclomatic complexity 6 (threshold: 5)</div>
+    <table><thead><tr>
+        <th>Function</th><th>Lines</th><th>Length</th>
+        <th>Params</th><th>CC</th><th>Rating</th>
+      </tr></thead><tbody><tr>
+    <td>getEmissionFactor()</td>
+    <td>L17–31</td>
+    <td>15</td>
+    <td>2</td>
+    <td style="color:#16a34a">5</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>calculateEmissions()</td>
+    <td>L45–59</td>
+    <td>15</td>
+    <td>1</td>
+    <td style="color:#d97706">6</td>
+    <td style="color:#d97706">medium</td>
+  </tr></tbody></table>
+  </section><section id="file-src-hooks-useEmissionResult-js" class="file-section">
+    <h2>src\hooks\useEmissionResult.js</h2>
+    <div class="file-meta">
+      <span>📄 40 physical lines</span>
+      <span>📝 28 source lines</span>
+      <span>🔢 11 logical statements</span>
+      <span>🔧 4 functions</span>
+      <span>Avg CC: 3.5</span>
+      <span>MI: 57.5</span>
+    </div>
+    <div class="ok">✓ No issues detected</div>
+    <table><thead><tr>
+        <th>Function</th><th>Lines</th><th>Length</th>
+        <th>Params</th><th>CC</th><th>Rating</th>
+      </tr></thead><tbody><tr>
+    <td>isValidInput()</td>
+    <td>L5–10</td>
+    <td>6</td>
+    <td>2</td>
+    <td style="color:#16a34a">5</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>useEmissionResult()</td>
+    <td>L16–39</td>
+    <td>24</td>
+    <td>1</td>
+    <td style="color:#16a34a">4</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>parsed [useMemo]()</td>
+    <td>L17–20</td>
+    <td>4</td>
+    <td>0</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>return [useMemo]()</td>
+    <td>L22–38</td>
+    <td>17</td>
+    <td>0</td>
+    <td style="color:#16a34a">4</td>
+    <td style="color:#16a34a">low</td>
+  </tr></tbody></table>
+  </section><section id="file-src-data-data-js" class="file-section">
+    <h2>src\data\data.js</h2>
+    <div class="file-meta">
+      <span>📄 54 physical lines</span>
+      <span>📝 40 source lines</span>
+      <span>🔢 13 logical statements</span>
+      <span>🔧 0 functions</span>
+      <span>Avg CC: 1</span>
+      <span>MI: 55.8</span>
+    </div>
+    <div class="ok">✓ No issues detected</div>
+    <p><em>No named functions detected.</em></p>
+  </section><section id="file-src-App-jsx" class="file-section">
+    <h2>src\App.jsx</h2>
+    <div class="file-meta">
+      <span>📄 83 physical lines</span>
+      <span>📝 74 source lines</span>
+      <span>🔢 11 logical statements</span>
+      <span>🔧 3 functions</span>
+      <span>Avg CC: 1.7</span>
+      <span>MI: 55.9</span>
+    </div>
+    <div class="warn">App() — 77 lines (threshold: 30)</div>
+    <table><thead><tr>
+        <th>Function</th><th>Lines</th><th>Length</th>
+        <th>Params</th><th>CC</th><th>Rating</th>
+      </tr></thead><tbody><tr>
+    <td>App()</td>
+    <td>L6–82</td>
+    <td>77</td>
+    <td>0</td>
+    <td style="color:#16a34a">3</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td><arrow>()</td>
+    <td>L30–32</td>
+    <td>3</td>
+    <td>1</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td><arrow>()</td>
+    <td>L40–44</td>
+    <td>5</td>
+    <td>1</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr></tbody></table>
+  </section><section id="file-src-cli-index-js" class="file-section">
+    <h2>src\cli\index.js</h2>
+    <div class="file-meta">
+      <span>📄 153 physical lines</span>
+      <span>📝 113 source lines</span>
+      <span>🔢 83 logical statements</span>
+      <span>🔧 11 functions</span>
+      <span>Avg CC: 2</span>
+      <span>MI: 32.3</span>
+    </div>
+    <div class="ok">✓ No issues detected</div>
+    <table><thead><tr>
+        <th>Function</th><th>Lines</th><th>Length</th>
+        <th>Params</th><th>CC</th><th>Rating</th>
+      </tr></thead><tbody><tr>
+    <td>printIntro()</td>
+    <td>L32–39</td>
+    <td>8</td>
+    <td>0</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>printTransportMenu()</td>
+    <td>L41–48</td>
+    <td>8</td>
+    <td>0</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td><arrow>()</td>
+    <td>L43–46</td>
+    <td>4</td>
+    <td>2</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>printCarMenu()</td>
+    <td>L50–59</td>
+    <td>10</td>
+    <td>0</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td><arrow>()</td>
+    <td>L52–57</td>
+    <td>6</td>
+    <td>2</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>printResult()</td>
+    <td>L61–72</td>
+    <td>12</td>
+    <td>1</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>askNumber()</td>
+    <td>L80–87</td>
+    <td>8</td>
+    <td>3</td>
+    <td style="color:#16a34a">5</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>askChoice()</td>
+    <td>L92–99</td>
+    <td>8</td>
+    <td>3</td>
+    <td style="color:#16a34a">5</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>promptOnce()</td>
+    <td>L103–121</td>
+    <td>19</td>
+    <td>1</td>
+    <td style="color:#16a34a">2</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td>main()</td>
+    <td>L125–147</td>
+    <td>23</td>
+    <td>0</td>
+    <td style="color:#16a34a">3</td>
+    <td style="color:#16a34a">low</td>
+  </tr><tr>
+    <td><arrow>()</td>
+    <td>L149–152</td>
+    <td>4</td>
+    <td>1</td>
+    <td style="color:#16a34a">1</td>
+    <td style="color:#16a34a">low</td>
+  </tr></tbody></table>
+  </section><section id="file-src-main-jsx" class="file-section">
+    <h2>src\main.jsx</h2>
+    <div class="file-meta">
+      <span>📄 11 physical lines</span>
+      <span>📝 9 source lines</span>
+      <span>🔢 5 logical statements</span>
+      <span>🔧 0 functions</span>
+      <span>Avg CC: 1</span>
+      <span>MI: 71.7</span>
+    </div>
+    <div class="ok">✓ No issues detected</div>
+    <p><em>No named functions detected.</em></p>
+  </section>
 </body>
 </html>
