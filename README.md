@@ -8,30 +8,6 @@ A comprehensive web and command-line application that helps international studen
 
 ---
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Available Commands](#available-commands)
-- [Usage](#usage)
-  - [Web Application](#web-application)
-  - [CLI Application](#cli-application)
-- [Testing & Quality Assurance](#testing--quality-assurance)
-  - [Unit Tests](#unit-tests)
-  - [Mutation Testing](#mutation-testing)
-  - [Code Metrics](#code-metrics)
-  - [Linting & Code Quality](#linting--code-quality)
-- [Project Structure Details](#project-structure-details)
-- [Reports](#reports)
-- [CI/CD Pipeline](#cicd-pipeline)
-- [Contributing](#contributing)
-
----
-
 ## 🎯 Overview
 
 The CO₂ Travel Emission Calculator is a full-stack application designed to compute CO₂ emissions for international students traveling between their home country and university. The application supports multiple transportation modes and includes detailed emission data based on real-world WLTP standards and EU averages.
@@ -107,43 +83,7 @@ The CO₂ Travel Emission Calculator is a full-stack application designed to com
 
 ---
 
-## 📁 Project Structure
-
-```
-co2-emission/
-├── src/
-│   ├── App.jsx                 # Main React component
-│   ├── App.css                 # Application styles
-│   ├── main.jsx                # React entry point
-│   ├── index.css               # Global styles
-│   ├── cli/
-│   │   └── index.js            # Command-line interface
-│   ├── data/
-│   │   ├── data.js             # Transport modes & car models data
-│   │   └── data.test.js        # Data tests
-│   ├── hooks/
-│   │   └── useEmissionResult.js # Custom React hook for calculations
-│   └── lib/
-│       ├── emissions.js        # Core calculation logic
-# CO₂ Travel Emission Calculator
-
-Minimal project README — only essential information.
-
-Technologies
-- JavaScript (ES Modules)
-- React
-- Vite
-
-Prerequisites
-- Node.js 22.x or later
-- npm
-
-Install
-```powershell
-npm install
-```
-
-Commands
+## Commands
 - Start dev server: `npm run dev`
 - Build production: `npm run build`
 - Preview production build: `npm run preview`
@@ -155,9 +95,14 @@ Commands
 - Mutation testing: `npm run mutate`
 - Generate metrics: `npm run metrics`
 
-Author
-- Sagosh Kumar
+---
 
-License
-- Course assignment (no explicit license)
-## 🚀 Installation
+### Prerequisites
+- Node.js 22.x LTS or later (recommended). Install from https://nodejs.org 
+
+Verify installation:
+```powershell
+node --version
+npm --version
+```
+
