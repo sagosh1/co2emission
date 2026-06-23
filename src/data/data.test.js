@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest"
 import { TRANSPORT_OPTIONS, TRANSPORT_G_PER_KM, CAR_MODELS } from "./data.js"
 
-// ─── TRANSPORT_OPTIONS ────────────────────────────────────────────────────────
 
 describe("TRANSPORT_OPTIONS", () => {
   it("contains exactly 8 transport options", () => {
@@ -12,7 +11,6 @@ describe("TRANSPORT_OPTIONS", () => {
     expect(TRANSPORT_OPTIONS.length).toBeGreaterThan(0)
   })
 
-  // Pin every value+label pair so mutating any string is caught
   const expected = [
     { value: "foot",  label: "Foot"  },
     { value: "bike",  label: "Bike"  },
@@ -52,8 +50,6 @@ describe("TRANSPORT_OPTIONS", () => {
   })
 })
 
-// ─── TRANSPORT_G_PER_KM ───────────────────────────────────────────────────────
-
 describe("TRANSPORT_G_PER_KM", () => {
   const expected = {
     foot:  0,
@@ -80,8 +76,6 @@ describe("TRANSPORT_G_PER_KM", () => {
     expect("car" in TRANSPORT_G_PER_KM).toBe(false)
   })
 })
-
-// ─── CAR_MODELS ───────────────────────────────────────────────────────────────
 
 describe("CAR_MODELS", () => {
   it("contains at least 10 models (task requirement)", () => {

@@ -1,11 +1,3 @@
-/**
- * All emission values are in grams of CO₂ per kilometre (g CO₂/km).
- * Car values are WLTP-certified figures.
- * Public transport values are EU average fleet estimates.
- */
-
-// ─── Public transport emission factors (g CO₂/km) ────────────────────────────
-
 const G_FOOT  = 0    // zero direct emissions
 const G_BIKE  = 0    // zero direct emissions
 const G_BUS   = 105  // EU average diesel bus
@@ -13,8 +5,6 @@ const G_TRAIN = 60   // EU average electric/diesel mix
 const G_TRAM  = 45   // EU average tram (electric)
 const G_METRO = 50   // EU average metro (electric)
 const G_FERRY = 120  // EU average passenger ferry
-
-// ─── Exports ──────────────────────────────────────────────────────────────────
 
 export const TRANSPORT_OPTIONS = [
   { value: "foot",  label: "Foot"  },

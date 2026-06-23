@@ -136,7 +136,6 @@ function registerFn(fns, node, name) {
   })
 }
 
-// eslint-disable-next-line complexity
 function resolveVariableDeclarator(fns, n) {
   if (!n.id?.name || !n.init) return
   const { init } = n

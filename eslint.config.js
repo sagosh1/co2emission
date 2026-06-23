@@ -7,10 +7,8 @@ import sonarjs from 'eslint-plugin-sonarjs'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  // ── ignore generated / tooling dirs ──────────────────────────────────────
   globalIgnores(['dist', '.stryker-tmp', 'reports', 'coverage']),
 
-  // ── Node.js CLI files ─────────────────────────────────────────────────────
   {
     files: ["src/cli/**/*.{js,jsx}", "scripts/**/*.js"],
     languageOptions: {
@@ -18,8 +16,6 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
-
-  // ── Core rules for all JS/JSX source ─────────────────────────────────────
   {
     files: ['**/*.{js,jsx}'],
     extends: [
@@ -36,7 +32,6 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     rules: {
-      // ── Unused variables ────────────────────────────────────────────────
       'no-unused-vars': ['error', {
         vars: 'all',
         args: 'after-used',
@@ -44,14 +39,13 @@ export default defineConfig([
         caughtErrors: 'none',    // allow empty catch blocks
       }],
 
-      // ── Complexity ──────────────────────────────────────────────────────
       'complexity': ['warn', { max: 10 }],
       'max-depth': ['warn', { max: 4 }],
       'max-lines-per-function': ['warn', { max: 60, skipBlankLines: true, skipComments: true }],
 
-      // ── Best practices ──────────────────────────────────────────────────
+      
       'eqeqeq': ['error', 'always'],
-      'no-console': 'off',                    // CLI needs console
+      'no-console': 'off',                    
       'no-var': 'error',
       'prefer-const': 'error',
       'prefer-template': 'error',
@@ -64,7 +58,7 @@ export default defineConfig([
       'no-throw-literal': 'error',
       'radix': 'error',
 
-      // ── Formatting / style ───────────────────────────────────────────────
+      
       'semi': ['error', 'never'],
       'quotes': ['error', 'double', { avoidEscape: true }],
       'indent': ['error', 2, { SwitchCase: 1 }],
@@ -75,7 +69,7 @@ export default defineConfig([
       'arrow-parens': ['error', 'always'],
       'space-before-function-paren': ['error', { anonymous: 'never', named: 'never', asyncArrow: 'always' }],
 
-      // ── Unicorn best practices (selective) ──────────────────────────────
+      
       'unicorn/prefer-number-properties': 'error',
       'unicorn/prefer-string-slice': 'error',
       'unicorn/no-array-push-push': 'error',
@@ -88,28 +82,28 @@ export default defineConfig([
       'unicorn/consistent-function-scoping': 'warn',
       'unicorn/prefer-logical-operator-over-ternary': 'warn',
 
-      // ── SonarJS (overrides) ──────────────────────────────────────────────
+      
       'sonarjs/cognitive-complexity': ['warn', 10],
       'sonarjs/no-duplicate-string': ['warn', { threshold: 4 }],
     },
   },
 
-  // ── Relaxed rules for React component files ──────────────────────────────
+  
   {
     files: ['**/*.jsx'],
     rules: {
-      // JSX markup is inherently verbose; 80 lines is reasonable for components
+      
       'max-lines-per-function': ['warn', { max: 80, skipBlankLines: true, skipComments: true }],
     },
   },
 
-  // ── Relaxed rules for test files ─────────────────────────────────────────
+ 
   {
     files: ['**/*.test.{js,jsx}'],
     rules: {
-      'max-lines-per-function': 'off',  // describe/it blocks can be long
-      'no-shadow': 'off',               // common to shadow vars in test scope
-      'sonarjs/no-duplicate-string': 'off', // test descriptions repeat strings
+      'max-lines-per-function': 'off',  
+      'no-shadow': 'off',               
+      'sonarjs/no-duplicate-string': 'off', 
       'unicorn/consistent-function-scoping': 'off',
       'unicorn/no-useless-undefined': 'off',
       'sonarjs/cognitive-complexity': 'off',

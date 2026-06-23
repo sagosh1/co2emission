@@ -2,8 +2,6 @@ import { describe, it, expect } from "vitest"
 import { getEmissionFactor, calculateEmissions, GRAMS_PER_KG } from "./emissions.js"
 import { CAR_MODELS, TRANSPORT_OPTIONS, TRANSPORT_G_PER_KM } from "../data/data.js"
 
-// ─── getEmissionFactor ────────────────────────────────────────────────────────
-
 describe("getEmissionFactor", () => {
   describe("non-car transport modes", () => {
     it("returns 0 g/km for foot", () => {
@@ -106,18 +104,14 @@ describe("getEmissionFactor", () => {
   })
 })
 
-// ─── calculateEmissions ───────────────────────────────────────────────────────
-
 describe("calculateEmissions", () => {
   describe("distance × g/km multiplication", () => {
     it("calculates gramsPerTrip correctly for bus", () => {
-      // 10 km × 105 g/km = 1050 g
       const result = calculateEmissions({ transport: "bus", distanceKm: 10, frequency: 1 })
       expect(result.gramsPerTrip).toBe(1050)
     })
 
     it("calculates gramsPerTrip correctly for train", () => {
-      // 25 km × 60 g/km = 1500 g
       const result = calculateEmissions({ transport: "train", distanceKm: 25, frequency: 1 })
       expect(result.gramsPerTrip).toBe(1500)
     })
@@ -133,7 +127,6 @@ describe("calculateEmissions", () => {
     })
 
     it("calculates gramsPerTrip for VW Golf correctly", () => {
-      // 20 km × 180 g/km = 3600 g
       const result = calculateEmissions({ transport: "car", carModel: "Volkswagen Golf", distanceKm: 20, frequency: 1 })
       expect(result.gramsPerTrip).toBe(3600)
     })
@@ -141,14 +134,12 @@ describe("calculateEmissions", () => {
 
   describe("total emissions (gramsPerTrip × frequency)", () => {
     it("multiplies correctly for multiple trips — bus", () => {
-      // 10 km × 105 g/km × 4 trips = 4200 g = 4.2 kg
       const result = calculateEmissions({ transport: "bus", distanceKm: 10, frequency: 4 })
       expect(result.totalGrams).toBe(4200)
       expect(result.totalKg).toBeCloseTo(4.2, 5)
     })
 
     it("multiplies correctly for multiple trips — train", () => {
-      // 50 km × 60 g/km × 10 trips = 30000 g = 30 kg
       const result = calculateEmissions({ transport: "train", distanceKm: 50, frequency: 10 })
       expect(result.totalGrams).toBe(30000)
       expect(result.totalKg).toBe(30)
@@ -165,14 +156,12 @@ describe("calculateEmissions", () => {
     })
 
     it("handles large values without overflow", () => {
-      // 10000 km × 120 g/km × 365 trips = 438,000,000 g = 438,000 kg
       const result = calculateEmissions({ transport: "ferry", distanceKm: 10000, frequency: 365 })
       expect(result.totalGrams).toBe(438_000_000)
       expect(result.totalKg).toBe(438_000)
     })
 
     it("handles fractional distances correctly", () => {
-      // 0.5 km × 105 g/km × 2 trips = 105 g
       const result = calculateEmissions({ transport: "bus", distanceKm: 0.5, frequency: 2 })
       expect(result.totalGrams).toBeCloseTo(105, 5)
     })
@@ -186,7 +175,6 @@ describe("calculateEmissions", () => {
     })
 
     it("Mercedes C 220 has correct total for a semester scenario", () => {
-      // 15 km × 205 g/km × 60 trips = 184,500 g = 184.5 kg
       const result = calculateEmissions({ transport: "car", carModel: "Mercedes C 220", distanceKm: 15, frequency: 60 })
       expect(result.totalGrams).toBe(184_500)
       expect(result.totalKg).toBe(184.5)
@@ -254,8 +242,6 @@ describe("calculateEmissions", () => {
     })
   })
 })
-
-// ─── data integrity checks ────────────────────────────────────────────────────
 
 describe("data integrity", () => {
   it("all TRANSPORT_OPTIONS values are either in TRANSPORT_G_PER_KM or are 'car'", () => {

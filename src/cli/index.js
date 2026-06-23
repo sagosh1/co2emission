@@ -3,8 +3,6 @@ import { stdin as input, stdout as output } from "process"
 import { CAR_MODELS, TRANSPORT_OPTIONS } from "../data/data.js"
 import { calculateEmissions } from "../lib/emissions.js"
 
-// ─── ANSI colour helpers ──────────────────────────────────────────────────────
-
 const RESET  = "\x1b[0m"
 const BOLD   = "\x1b[1m"
 const BLUE   = "\x1b[34m"
@@ -22,12 +20,7 @@ const c = {
   red:    (s) => `${RED}${s}${RESET}`,
 }
 
-// ─── Display constants ────────────────────────────────────────────────────────
-
-/** Column width for car model names in the menu */
 const CAR_MODEL_COL_WIDTH = 22
-
-// ─── Menu printers ────────────────────────────────────────────────────────────
 
 function printIntro() {
   console.log()
@@ -71,12 +64,6 @@ function printResult({ gPerKm, label, gramsPerTrip, totalGrams, totalKg }) {
   console.log()
 }
 
-// ─── Input helpers ────────────────────────────────────────────────────────────
-
-/**
- * Repeatedly prompts until the user enters a finite number greater than `min`.
- * When `integer` is true the value is parsed as an integer.
- */
 async function askNumber(rl, prompt, { min = 0, integer = false } = {}) {
   for (;;) {
     const raw = await rl.question(prompt)
@@ -86,9 +73,7 @@ async function askNumber(rl, prompt, { min = 0, integer = false } = {}) {
   }
 }
 
-/**
- * Repeatedly prompts until the user enters an integer in [1, max].
- */
+
 async function askChoice(rl, prompt, max) {
   for (;;) {
     const raw = await rl.question(prompt)
@@ -97,8 +82,6 @@ async function askChoice(rl, prompt, max) {
     console.log(c.red(`✖ Enter a number between 1 and ${max}.`))
   }
 }
-
-// ─── Single interaction round ─────────────────────────────────────────────────
 
 async function promptOnce(rl) {
   printTransportMenu()
@@ -119,8 +102,6 @@ async function promptOnce(rl) {
 
   return { transport, carModel, distanceKm, frequency }
 }
-
-// ─── Main loop ────────────────────────────────────────────────────────────────
 
 async function main() {
   const rl = readline.createInterface({ input, output })

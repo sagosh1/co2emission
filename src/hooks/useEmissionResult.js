@@ -1,7 +1,6 @@
 import { useMemo } from "react"
 import { calculateEmissions } from "../lib/emissions"
 
-/** Returns true when distanceKm and frequency are valid inputs. */
 function isValidInput(distanceKm, freq) {
   return (
     Number.isFinite(distanceKm) && distanceKm > 0 &&
@@ -9,10 +8,6 @@ function isValidInput(distanceKm, freq) {
   )
 }
 
-/**
- * Derives a CO2 emission result from the current form state.
- * Returns null when inputs are invalid.
- */
 export function useEmissionResult({ transport, carModel, distance, frequency }) {
   const parsed = useMemo(() => ({
     distanceKm: Number.parseFloat(distance),
