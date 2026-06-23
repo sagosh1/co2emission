@@ -4,7 +4,7 @@ A comprehensive web and command-line application that helps international studen
 
 **Author:** Sagosh Kumar  
 **Course:** Architecture of Information Systems  
-**Type:** Studienleistung (Course Assignment)
+**Type:** Studienleistung (Course Task)
 
 ---
 
@@ -19,6 +19,29 @@ The CO₂ Travel Emission Calculator is a full-stack application designed to com
 - ✅ **Comprehensive Testing**: Unit tests, mutation testing, and code coverage analysis
 - ✅ **Automated Quality Assurance**: Linting, metrics, and bad smell detection
 - ✅ **CI/CD Ready**: GitHub Actions pipeline for automated builds and testing
+
+---
+
+
+### Prerequisites
+- Node.js 22.x LTS or later (recommended). Install from https://nodejs.org 
+
+Verify installation:
+```powershell
+node --version
+npm --version
+```
+---
+
+## Commands
+- Start dev server: `npm run dev`
+- Build production: `npm run build`
+- Run CLI: `npm run cli`
+- Run tests: `npm run test`
+- Run tests with coverage: `npm run test:coverage`
+- Lint code: `npm run lint`
+- Mutation testing: `npm run mutate`
+- Generate metrics: `npm run metrics`
 
 ---
 
@@ -83,24 +106,5 @@ The CO₂ Travel Emission Calculator is a full-stack application designed to com
 
 ---
 
-## Commands
-- Start dev server: `npm run dev`
-- Build production: `npm run build`
-- Run CLI: `npm run cli`
-- Run tests: `npm run test`
-- Run tests with coverage: `npm run test:coverage`
-- Lint code: `npm run lint`
-- Mutation testing: `npm run mutate`
-- Generate metrics: `npm run metrics`
 
----
-
-### Prerequisites
-- Node.js 22.x LTS or later (recommended). Install from https://nodejs.org 
-
-Verify installation:
-```powershell
-node --version
-npm --version
-```
 
