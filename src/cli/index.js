@@ -73,7 +73,6 @@ async function askNumber(rl, prompt, { min = 0, integer = false } = {}) {
   }
 }
 
-
 async function askChoice(rl, prompt, max) {
   for (;;) {
     const raw = await rl.question(prompt)

@@ -34,9 +34,9 @@
 </head>
 <body>
   <h1>Code Metrics Report</h1>
-  <p class="sub">Project: co2-emission &nbsp;|&nbsp; Generated: 22 Jun 2026, 23:04</p>
+  <p class="sub">Project: co2-emission &nbsp;|&nbsp; Generated: 23 Jun 2026, 16:51</p>
   <div class="grid">
-    <div class="card"><div class="val">401</div><div class="lbl">Total Lines</div></div>
+    <div class="card"><div class="val">341</div><div class="lbl">Total Lines</div></div>
     <div class="card"><div class="val">6</div><div class="lbl">Files</div></div>
     <div class="card"><div class="val">20</div><div class="lbl">Functions</div></div>
     <div class="card"><div class="val" style="color:#dc2626">53.6</div><div class="lbl">Avg Maintainability</div></div>
@@ -57,7 +57,7 @@
     </tr></thead>
     <tbody><tr>
     <td><a href="#file-src-lib-emissions-js">src\lib\emissions.js</a></td>
-    <td>60</td>
+    <td>35</td>
     <td>28</td>
     <td>25</td>
     <td>2</td>
@@ -65,7 +65,7 @@
     <td style="color:#dc2626">48.2 <small>(Low)</small></td>
   </tr><tr>
     <td><a href="#file-src-hooks-useEmissionResult-js">src\hooks\useEmissionResult.js</a></td>
-    <td>40</td>
+    <td>35</td>
     <td>28</td>
     <td>11</td>
     <td>4</td>
@@ -73,7 +73,7 @@
     <td style="color:#dc2626">57.5 <small>(Low)</small></td>
   </tr><tr>
     <td><a href="#file-src-data-data-js">src\data\data.js</a></td>
-    <td>54</td>
+    <td>44</td>
     <td>40</td>
     <td>13</td>
     <td>0</td>
@@ -89,7 +89,7 @@
     <td style="color:#dc2626">55.9 <small>(Low)</small></td>
   </tr><tr>
     <td><a href="#file-src-cli-index-js">src\cli\index.js</a></td>
-    <td>153</td>
+    <td>133</td>
     <td>113</td>
     <td>83</td>
     <td>11</td>
@@ -109,7 +109,7 @@
   <section id="file-src-lib-emissions-js" class="file-section">
     <h2>src\lib\emissions.js</h2>
     <div class="file-meta">
-      <span>📄 60 physical lines</span>
+      <span>📄 35 physical lines</span>
       <span>📝 28 source lines</span>
       <span>🔢 25 logical statements</span>
       <span>🔧 2 functions</span>
@@ -122,14 +122,14 @@
         <th>Params</th><th>CC</th><th>Rating</th>
       </tr></thead><tbody><tr>
     <td>getEmissionFactor()</td>
-    <td>L17–31</td>
+    <td>L4–18</td>
     <td>15</td>
     <td>2</td>
     <td style="color:#16a34a">5</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>calculateEmissions()</td>
-    <td>L45–59</td>
+    <td>L20–34</td>
     <td>15</td>
     <td>1</td>
     <td style="color:#d97706">6</td>
@@ -138,7 +138,7 @@
   </section><section id="file-src-hooks-useEmissionResult-js" class="file-section">
     <h2>src\hooks\useEmissionResult.js</h2>
     <div class="file-meta">
-      <span>📄 40 physical lines</span>
+      <span>📄 35 physical lines</span>
       <span>📝 28 source lines</span>
       <span>🔢 11 logical statements</span>
       <span>🔧 4 functions</span>
@@ -151,28 +151,28 @@
         <th>Params</th><th>CC</th><th>Rating</th>
       </tr></thead><tbody><tr>
     <td>isValidInput()</td>
-    <td>L5–10</td>
+    <td>L4–9</td>
     <td>6</td>
     <td>2</td>
     <td style="color:#16a34a">5</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>useEmissionResult()</td>
-    <td>L16–39</td>
+    <td>L11–34</td>
     <td>24</td>
     <td>1</td>
     <td style="color:#16a34a">4</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>parsed [useMemo]()</td>
-    <td>L17–20</td>
+    <td>L12–15</td>
     <td>4</td>
     <td>0</td>
     <td style="color:#16a34a">1</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>return [useMemo]()</td>
-    <td>L22–38</td>
+    <td>L17–33</td>
     <td>17</td>
     <td>0</td>
     <td style="color:#16a34a">4</td>
@@ -181,7 +181,7 @@
   </section><section id="file-src-data-data-js" class="file-section">
     <h2>src\data\data.js</h2>
     <div class="file-meta">
-      <span>📄 54 physical lines</span>
+      <span>📄 44 physical lines</span>
       <span>📝 40 source lines</span>
       <span>🔢 13 logical statements</span>
       <span>🔧 0 functions</span>
@@ -229,7 +229,7 @@
   </section><section id="file-src-cli-index-js" class="file-section">
     <h2>src\cli\index.js</h2>
     <div class="file-meta">
-      <span>📄 153 physical lines</span>
+      <span>📄 133 physical lines</span>
       <span>📝 113 source lines</span>
       <span>🔢 83 logical statements</span>
       <span>🔧 11 functions</span>
@@ -242,77 +242,77 @@
         <th>Params</th><th>CC</th><th>Rating</th>
       </tr></thead><tbody><tr>
     <td>printIntro()</td>
-    <td>L32–39</td>
+    <td>L25–32</td>
     <td>8</td>
     <td>0</td>
     <td style="color:#16a34a">1</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>printTransportMenu()</td>
-    <td>L41–48</td>
+    <td>L34–41</td>
     <td>8</td>
     <td>0</td>
     <td style="color:#16a34a">1</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td><arrow>()</td>
-    <td>L43–46</td>
+    <td>L36–39</td>
     <td>4</td>
     <td>2</td>
     <td style="color:#16a34a">1</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>printCarMenu()</td>
-    <td>L50–59</td>
+    <td>L43–52</td>
     <td>10</td>
     <td>0</td>
     <td style="color:#16a34a">1</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td><arrow>()</td>
-    <td>L52–57</td>
+    <td>L45–50</td>
     <td>6</td>
     <td>2</td>
     <td style="color:#16a34a">1</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>printResult()</td>
-    <td>L61–72</td>
+    <td>L54–65</td>
     <td>12</td>
     <td>1</td>
     <td style="color:#16a34a">1</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>askNumber()</td>
-    <td>L80–87</td>
+    <td>L67–74</td>
     <td>8</td>
     <td>3</td>
     <td style="color:#16a34a">5</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>askChoice()</td>
-    <td>L92–99</td>
+    <td>L76–83</td>
     <td>8</td>
     <td>3</td>
     <td style="color:#16a34a">5</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>promptOnce()</td>
-    <td>L103–121</td>
+    <td>L85–103</td>
     <td>19</td>
     <td>1</td>
     <td style="color:#16a34a">2</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td>main()</td>
-    <td>L125–147</td>
+    <td>L105–127</td>
     <td>23</td>
     <td>0</td>
     <td style="color:#16a34a">3</td>
     <td style="color:#16a34a">low</td>
   </tr><tr>
     <td><arrow>()</td>
-    <td>L149–152</td>
+    <td>L129–132</td>
     <td>4</td>
     <td>1</td>
     <td style="color:#16a34a">1</td>

@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest"
 import { TRANSPORT_OPTIONS, TRANSPORT_G_PER_KM, CAR_MODELS } from "./data.js"
 
-
 describe("TRANSPORT_OPTIONS", () => {
   it("contains exactly 8 transport options", () => {
     expect(TRANSPORT_OPTIONS).toHaveLength(8)
