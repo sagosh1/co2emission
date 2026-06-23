@@ -86,10 +86,8 @@ The CO₂ Travel Emission Calculator is a full-stack application designed to com
 ## Commands
 - Start dev server: `npm run dev`
 - Build production: `npm run build`
-- Preview production build: `npm run preview`
 - Run CLI: `npm run cli`
 - Run tests: `npm run test`
-- Run tests (watch): `npm run test:watch`
 - Run tests with coverage: `npm run test:coverage`
 - Lint code: `npm run lint`
 - Mutation testing: `npm run mutate`
