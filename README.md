@@ -3,6 +3,7 @@
 A comprehensive web and command-line application that helps international students calculate CO₂ emissions caused by their travel to university and back home during semester breaks. Built with modern JavaScript technologies.
 
 **Author:** Sagosh Kumar  
+**Matriculation number** 2301826
 **Course:** Architecture of Information Systems  
 **Type:** Studienleistung (Course Task)
 
