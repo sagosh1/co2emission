@@ -7,6 +7,7 @@ A comprehensive web and command-line application that helps international studen
 **Course:** Architecture of Information Systems  
 **Type:** Studienleistung (Course Task)
 
+
 ---
 
 ## 🎯 Overview
