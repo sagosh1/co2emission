@@ -1,10 +1,10 @@
-const G_FOOT  = 0    // zero direct emissions
-const G_BIKE  = 0    // zero direct emissions
-const G_BUS   = 105  // EU average diesel bus
-const G_TRAIN = 60   // EU average electric/diesel mix
-const G_TRAM  = 45   // EU average tram (electric)
-const G_METRO = 50   // EU average metro (electric)
-const G_FERRY = 120  // EU average passenger ferry
+const G_FOOT  = 0
+const G_BIKE  = 0
+const G_BUS   = 105
+const G_TRAIN = 60
+const G_TRAM  = 45
+const G_METRO = 50
+const G_FERRY = 120
 
 export const TRANSPORT_OPTIONS = [
   { value: "foot",  label: "Foot"  },

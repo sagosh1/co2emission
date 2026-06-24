@@ -16,6 +16,7 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+
   {
     files: ['**/*.{js,jsx}'],
     extends: [
@@ -36,16 +37,13 @@ export default defineConfig([
         vars: 'all',
         args: 'after-used',
         ignoreRestSiblings: true,
-        caughtErrors: 'none',    // allow empty catch blocks
+        caughtErrors: 'none',
       }],
-
       'complexity': ['warn', { max: 10 }],
       'max-depth': ['warn', { max: 4 }],
       'max-lines-per-function': ['warn', { max: 60, skipBlankLines: true, skipComments: true }],
-
-      
       'eqeqeq': ['error', 'always'],
-      'no-console': 'off',                    
+      'no-console': 'off',
       'no-var': 'error',
       'prefer-const': 'error',
       'prefer-template': 'error',
@@ -57,8 +55,6 @@ export default defineConfig([
       'no-implicit-coercion': 'error',
       'no-throw-literal': 'error',
       'radix': 'error',
-
-      
       'semi': ['error', 'never'],
       'quotes': ['error', 'double', { avoidEscape: true }],
       'indent': ['error', 2, { SwitchCase: 1 }],
@@ -68,8 +64,6 @@ export default defineConfig([
       'no-multiple-empty-lines': ['error', { max: 1 }],
       'arrow-parens': ['error', 'always'],
       'space-before-function-paren': ['error', { anonymous: 'never', named: 'never', asyncArrow: 'always' }],
-
-      
       'unicorn/prefer-number-properties': 'error',
       'unicorn/prefer-string-slice': 'error',
       'unicorn/no-array-push-push': 'error',
@@ -81,29 +75,24 @@ export default defineConfig([
       'unicorn/no-typeof-undefined': 'error',
       'unicorn/consistent-function-scoping': 'warn',
       'unicorn/prefer-logical-operator-over-ternary': 'warn',
-
-      
       'sonarjs/cognitive-complexity': ['warn', 10],
       'sonarjs/no-duplicate-string': ['warn', { threshold: 4 }],
     },
   },
 
-  
   {
     files: ['**/*.jsx'],
     rules: {
-      
       'max-lines-per-function': ['warn', { max: 80, skipBlankLines: true, skipComments: true }],
     },
   },
 
- 
   {
     files: ['**/*.test.{js,jsx}'],
     rules: {
-      'max-lines-per-function': 'off',  
-      'no-shadow': 'off',               
-      'sonarjs/no-duplicate-string': 'off', 
+      'max-lines-per-function': 'off',
+      'no-shadow': 'off',
+      'sonarjs/no-duplicate-string': 'off',
       'unicorn/consistent-function-scoping': 'off',
       'unicorn/no-useless-undefined': 'off',
       'sonarjs/cognitive-complexity': 'off',

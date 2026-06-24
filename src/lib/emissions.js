@@ -1,4 +1,5 @@
 import { CAR_MODELS, TRANSPORT_G_PER_KM } from "../data/data.js"
+
 export const GRAMS_PER_KG = 1000
 
 export function getEmissionFactor(transport, carModel = null) {

@@ -19,7 +19,6 @@ const c = {
   muted:  (s) => `${MUTED}${s}${RESET}`,
   red:    (s) => `${RED}${s}${RESET}`,
 }
-
 const CAR_MODEL_COL_WIDTH = 22
 
 function printIntro() {
