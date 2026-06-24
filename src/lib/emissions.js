@@ -10,7 +10,6 @@ export function getEmissionFactor(transport, carModel = null) {
     return { gPerKm: row.gCo2PerKm, label: row.model, kind: "carModel" }
   }
 
-  
   if (!(transport in TRANSPORT_G_PER_KM)) {
     throw new Error(`Unknown transport mode: "${transport}"`)
   }
